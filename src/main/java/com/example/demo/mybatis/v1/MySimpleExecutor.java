@@ -29,7 +29,8 @@ public class MySimpleExecutor implements MyExecutor {
             e.printStackTrace();
         }
         UserInfo userInfo = null;
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://114.116.53.133:1521/htfsweb_saas2", "root", "123456");
+        //connection传入 jdbc url地址，用户名，密码三个参数//注意不要提交到公共资源里面
+        try(Connection connection = DriverManager.getConnection("", "", "");
             PreparedStatement ps = connection.prepareStatement(String.format(statement, parameter));
             ResultSet rs = ps.executeQuery()
         ){
