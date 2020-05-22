@@ -4,5 +4,5 @@
 main()
 { //main函数的语句都被括在花括号中
     //main函数调用库函数printf以显示字符序列；
-    printf("hello, world;the second out \n "); //\n代表换行符
+    printf("hello, world;\nthe second out \n "); //\n代表换行符
 }
