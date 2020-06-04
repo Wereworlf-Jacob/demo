@@ -1,0 +1,55 @@
+访问bean属性
+基本类型：     "属性名"
+引用类型：     "对象.属性名"
+数组/集合类型："属性名[下标]"
+map类型：      "属性名.key" 或者 "属性名['key']"
+常规运算
+  算术运算     "属性名 + 10" Note: 加减乘除 大于小于等于 如果是name + 10会字符串拼接
+  关系运算     ""
+  逻辑运算     ""
+调用方法
+  普通方法     "对象.方法名()"
+  静态方法     "@完整的类名@方法名()" Note @是引入的意思，方法是静态方法名
+创建集合对象   "{元素1, 元素2...}"
+创建map对象    "#{key:value, key:value, ...}" Note:#表示map对象，否则就会创建一个集合对象
+Ognl中只能创建list和map对象，并且这种方法只适用于创建临时对象
+
+标准的Ognl涉及3个概念：Ognl引擎 root对象 context对象
+  root对象：Ognl操作的对象
+  context对象：就是一个map，一般用于存放跟整个系统都相关的map
+
+el表达式的取值范围是pageContext request session application
+
+在Struts2 中，重写了request的getAttrbute方法，重写之后，requet里面没有的话就会从VS中获取数据VS：valueStack 值栈，将Ognl升级后，root对象变为栈结果，然后栈顶是action
+
+strust2中，是通过一个params拦截器，来实现从VS中获取数据
+
+Struts2的六大核心组件
+1)FC -web.xml
+  前端控制器，负责请求分发
+2)VS
+  值栈，是Action和jsp的媒介
+3)Action
+  业务控制器，负责处理具体业务逻辑
+4)Interceptor
+  拦截器，负责扩展Action
+5)Result
+  输出组件
+6)Tags
+  S标签
+
+5、基本流程
+  1)请求到大之后，先经过FC
+  2)FC根据struts.xml文件的配置，决定调用哪一个Action
+  3)创建VS对象
+  4)创建Action对象，并且将其压入VS栈顶
+  5)调用Action对象的方法(默认是execute)
+    根据输入属性计算输出属性
+  6)在调用方法之前或者之后，会调用一系列的Interceptor
+  7)根据方法返回的字符串调用对应的Result
+  8)通常情况下result会转发到某一个页面，在页面中就能获取VS中的数据了
+
+  trace -E 'io\.netty\.channel\.nio\.NioEventLoop|io\.netty\.util\.concurrent\.SingleThreadEventExecutor'  'select|processSelectedKeys|runAllTasks' '@Thread@currentThread().getName().contains("IO-HTTP-WORKER-IOPool")&&#cost>500'
+
+
+

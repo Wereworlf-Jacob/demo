@@ -28,6 +28,15 @@ public class MySimpleExecutor implements MyExecutor {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        /**
+         * stmt.getMoreResults()
+         * stmt.getUpdateCount()
+         * rs.getMetaData()
+         * metaData.getColumnCount()
+         * metaData.getColumnLabel(i)
+         * metaData.getColumnName(i)
+         * metaData.getColumnClassName(i)
+         */
         UserInfo userInfo = null;
         //connection传入 jdbc url地址，用户名，密码三个参数//注意不要提交到公共资源里面
         try(Connection connection = DriverManager.getConnection("", "", "");
