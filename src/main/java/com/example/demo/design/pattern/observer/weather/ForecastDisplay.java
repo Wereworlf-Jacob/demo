@@ -1,20 +1,15 @@
-package com.example.demo.design.pattern.observer.apiweather;
+package com.example.demo.design.pattern.observer.weather;
 
 import com.example.demo.design.pattern.observer.DisplayElement;
-
-import java.util.Observable;
-import java.util.Observer;
 
 /**
  * @ClassName ForecastDisplay
  * @Description
  * @Author Jacob
  * @Version 1.0
- * @since 2020/6/28 11:02
+ * @since 2020/6/28 10:45
  **/
 public class ForecastDisplay implements Observer, DisplayElement {
-
-    private WeatherData weatherData;
 
     private String temperature;
 
@@ -29,17 +24,13 @@ public class ForecastDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        if (o instanceof WeatherData){
-            weatherData = (WeatherData) o;
-            temperature = weatherData.getTemperature();
-            humdity = weatherData.getHumidity();
-            pressure = weatherData.getPressure();
+    public void update(Object subject, Object args) {
+        if (subject instanceof WeatherSubject){
+            WeatherSubject weatherSubject = (WeatherSubject) subject;
+            temperature = weatherSubject.getTemperature();
+            humdity = weatherSubject.getHumidity();
+            pressure = weatherSubject.getPressure();
             displayed();
         }
-    }
-
-    public void remove(){
-        weatherData.deleteObserver(this);
     }
 }
