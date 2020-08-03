@@ -5,7 +5,7 @@ import com.example.demo.design.pattern.strategy.simUDuck.behavior.impl.MuteQuack
 
 /**
  * @ClassName ModelDuck
- * @Description
+ * @Description 模型鸭子
  * @Author Jacob
  * @Version 1.0
  * @since 2020/6/24 15:49
