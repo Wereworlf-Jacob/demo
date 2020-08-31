@@ -46,6 +46,11 @@ public class RegularExpression {
         System.out.println(ccc.replaceAll("([a-z]+)(.*?)([a-z]+)", "($1|$2|$3)"));
 
         System.out.println(JSONObject.toJSONString(getMachers("([a-z]+)(.*?)([a-z]+)", ccc,3)));
+        String text = "云南省曲靖市沾益区金龙街道金龙社区居民委员会后圩村219号";
+        String reg2 = "(.*?省)(.*?市)(.*)";
+        System.out.println(JSONObject.toJSONString(getMachers(reg2, text, 3)));
+
+        System.out.println(JSONObject.toJSONString(getMachers("([a-z]+)(\\d+)", "ads1212adf123")));
 
     }
 
