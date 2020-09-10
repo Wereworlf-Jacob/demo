@@ -45,27 +45,15 @@ public class RabbitmqConfig {
     @Bean
     public Binding bingding1 (@Qualifier(EXCHANGE) DirectExchange direct,
                               @Qualifier(AJ_QUEUE) Queue queue) {
+        BindingBuilder.bind(queue).to(direct).with(RK_ALL);
         return BindingBuilder.bind(queue).to(direct).with(RK_AJ);
     }
 
     @Bean
     public Binding bingding2 (@Qualifier(EXCHANGE) DirectExchange direct,
                               @Qualifier(PEO_QUEUE) Queue queue) {
-        System.out.println("binding dfdsfdsfds");
+        BindingBuilder.bind(queue).to(direct).with(RK_ALL);
         return BindingBuilder.bind(queue).to(direct).with(RK_PEO);
-    }
-
-    @Bean
-    public Binding bingding3 (@Qualifier(EXCHANGE) DirectExchange direct,
-                              @Qualifier(AJ_QUEUE) Queue queue) {
-        return BindingBuilder.bind(queue).to(direct).with(RK_ALL);
-    }
-
-    @Bean
-    public Binding bingding4 (@Qualifier(EXCHANGE) DirectExchange direct,
-                              @Qualifier(PEO_QUEUE) Queue queue) {
-        System.out.println("binding dfdsfdsfds");
-        return BindingBuilder.bind(queue).to(direct).with(RK_ALL);
     }
 
 }

@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class RouteTypeConsumer {
 
-    @RabbitListener(queues = RabbitmqConfig.AJ_QUEUE)
+//    @RabbitListener(queues = RabbitmqConfig.AJ_QUEUE)
     public void receiveAJ(String msg){
         System.out.println("receive msg AJ: " + msg);
     }
 
-    @RabbitListener(queues = RabbitmqConfig.PEO_QUEUE)
+//    @RabbitListener(queues = RabbitmqConfig.PEO_QUEUE)
     public void receivePeo(String msg) {
         System.out.println("receive msg PEO: " + msg);
     }
