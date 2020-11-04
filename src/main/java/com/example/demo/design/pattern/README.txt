@@ -19,6 +19,8 @@ Bridge, Builder, Chain of Responsibility, Flyweight, Interpreter, Mediator, Meme
 
 只和朋友交谈（最小知识原则）
 
+好莱坞原则：别调用我们，我们会调用你
+
 设计模式的思考：
 如果设计一个超类，使用继承的话，那么当扩展行为时，容易让其他子类发生不希望的改变，如果只有接口呢，
 那么会有大量的重复代码，因为子类可能存在同一种行为；那么此时应该，混合使用，子类肯定有的行为，使用
@@ -56,3 +58,7 @@ Bridge, Builder, Chain of Responsibility, Flyweight, Interpreter, Mediator, Meme
         被当作方法的参数而传递进来的对象 Key
         此方法所创建或实例化的任何对象 Doors
         对象的任何组件 Engine
+
+好莱坞原则：
+    我们允许低层组件将自己挂钩到系统上，但是高层组件会决定什么时候和怎样使用这些底层组件。
+    高层组件对待低层组件：别调用我们，我们会调用你
