@@ -1,7 +1,7 @@
 23种设计模式：
 Strategy 策略模式, Observer 观察者模式, Decorator 装饰器模式, Abstract Factory 抽象工厂模式,
 Factory Method 工厂方法, Singleton 单例模式, Command 命令模式,
-Adapter 适配器模式, Facade 外观模式, Template Method, Iterator, Composite, State, Proxy
+Adapter 适配器模式, Facade 外观模式, Template Method 模板方法模式, Iterator, Composite, State, Proxy
 
 Bridge, Builder, Chain of Responsibility, Flyweight, Interpreter, Mediator, Memento, Prototype, Visitor.
 
@@ -20,6 +20,7 @@ Bridge, Builder, Chain of Responsibility, Flyweight, Interpreter, Mediator, Meme
 只和朋友交谈（最小知识原则）
 
 好莱坞原则：别调用我们，我们会调用你
+单一职责：一个类应该只有一个引起变化的原因
 
 设计模式的思考：
 如果设计一个超类，使用继承的话，那么当扩展行为时，容易让其他子类发生不希望的改变，如果只有接口呢，
@@ -62,3 +63,9 @@ Bridge, Builder, Chain of Responsibility, Flyweight, Interpreter, Mediator, Meme
 好莱坞原则：
     我们允许低层组件将自己挂钩到系统上，但是高层组件会决定什么时候和怎样使用这些底层组件。
     高层组件对待低层组件：别调用我们，我们会调用你
+
+单一职责：
+    类的每个责任都有改变的潜在区域。超过一个责任，意味着超过一个改变的区域。
+    所以我们要尽量让每个类保持单一的职责。
+    比如集合：它只负责聚合对象，如果给它安排更多的责任（例如遍历）。那么当这个数据结构发生变化或者
+        遍历方式发生改变的话，那么这个集合都会发生改变。而我们要避免类内的改变，因为修改代码很容永产生潜在的错误

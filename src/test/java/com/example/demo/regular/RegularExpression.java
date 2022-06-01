@@ -1,6 +1,8 @@
 package com.example.demo.regular;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.junit.platform.commons.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,22 +49,35 @@ public class RegularExpression {
 
         System.out.println(JSONObject.toJSONString(getMachers("([a-z]+)(.*?)([a-z]+)", ccc,3)));
         String text = "云南省曲靖市沾益区金龙街道金龙社区居民委员会后圩村219号";
-        String reg2 = "(.*?省)(.*?市)(.*)";
-        System.out.println(JSONObject.toJSONString(getMachers(reg2, text, 3)));
+        String reg2 = "(^.*?省)|(.*?市)|(.*)";
+        System.out.println(JSONObject.toJSONString(getMachers(reg2, text)));
 
         System.out.println(JSONObject.toJSONString(getMachers("([a-z]+)(\\d+)", "ads1212adf123")));
+        System.out.println(JSONArray.toJSONString(getMachers("(.*?\\|)|(.*?7)", "3 | 李思思04847")));
+        System.out.println(JSONArray.toJSONString(getMachers("windows(?=95)", "windows95")));
+        test("^[a-z]", "a");
+    }
 
+    private static void test(String reg, String test) {
+        Pattern pattern = Pattern.compile(reg);
+        Matcher matcher = pattern.matcher(test);
+        System.out.println("matcher result=" + matcher.matches());
     }
 
     private static List<String> getMachers(String reg, String test, int... index){
         Pattern pattern = Pattern.compile(reg);
         Matcher matcher = pattern.matcher(test);
+//        System.out.println("matcher result=" + matcher.matches());
         List<String> list = new ArrayList<>();
         int group = 0;
         if (index.length > 0)
             group = index[0];
         while (matcher.find()){
-            list.add(matcher.group(group));
+            String findStr = matcher.group(group);
+            if (StringUtils.isBlank(findStr)) {
+                continue;
+            }
+            list.add(findStr);
         }
         return list;
     }
